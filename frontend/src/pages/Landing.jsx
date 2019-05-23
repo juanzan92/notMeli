@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 // Material-UI components
 import Grid from '@material-ui/core/Grid';
-import withAppBar from '../libs/withAppBar/withAppBar';
 import Spinner from '../utils/Spinner/Spinner';
 import Carousel from '../components/Carousel';
+import withLayout from '../libs/withLayout/withLayout';
 
 class LandingPage extends Component {
     render() {
@@ -22,6 +22,6 @@ class LandingPage extends Component {
         );
     }
 }
-export default withAppBar(LandingPage);
+export default withLayout(LandingPage);
 
 
