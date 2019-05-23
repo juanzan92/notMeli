@@ -7,11 +7,13 @@ import Drawer from '@material-ui/core/Drawer';
 import IconButton from '@material-ui/core/IconButton';
 import Grid from '@material-ui/core/Grid';
 import List from '@material-ui/core/List';
+
 //Material-ui Icons
 import MenuIcon from '@material-ui/icons/Menu';
 //Components
 import Spinner from '../../utils/Spinner/Spinner';
 import CategoryCard from '../../components/CategoryCard';
+import Footer from  './Footer';
 
 export default function withAppBar(WrappedComponent) {
 
@@ -90,7 +92,7 @@ export default function withAppBar(WrappedComponent) {
             const { isError, categories, isLoading } = this.state;
             return (
                 <>
-                    <AppBar position="static" >
+                    <AppBar position="static" style={{backgroundColor:"#00A896"}} >
                         <Toolbar>
                             <IconButton onClick={this.toggleDrawer('left', true)}
                                 style={this.classes.menuButton} color="inherit" aria-label="Open drawer">
@@ -129,6 +131,7 @@ export default function withAppBar(WrappedComponent) {
                         </div>
                     </Drawer>
                     <WrappedComponent {...this.props} />
+                    <Footer />
                 </>
             )
         }

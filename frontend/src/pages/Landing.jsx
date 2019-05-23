@@ -3,13 +3,22 @@ import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid';
 import withAppBar from '../libs/withAppBar/withAppBar';
 import Spinner from '../utils/Spinner/Spinner';
+import Carousel from '../components/Carousel';
 
 class LandingPage extends Component {
     render() {
         return (
-            <Grid item xs={12}>
-              <Spinner />
+            <Grid
+                container
+                item
+                alignItems="center"
+                xs={12}>
+                <Carousel />
+                <div style={{ padding: "15%" }}>
+                    
+                </div>
             </Grid>
+
         );
     }
 }
