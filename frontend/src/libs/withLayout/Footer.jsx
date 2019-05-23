@@ -11,7 +11,7 @@ export default class Footer extends React.Component {
 
   render() {
     return (
-      <footer style={{ backgroundColor: "#00A896" }}>
+      <footer style={{ backgroundColor: "#CED3C9" }}>
         <Grid
           container
           direction="column"
