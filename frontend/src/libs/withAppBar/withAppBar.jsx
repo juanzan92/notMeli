@@ -14,6 +14,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Spinner from '../../utils/Spinner/Spinner';
 import CategoryCard from '../../components/CategoryCard';
 import Footer from  './Footer';
+import Search from '.../Components/Search';
 
 export default function withAppBar(WrappedComponent) {
 
@@ -103,6 +104,7 @@ export default function withAppBar(WrappedComponent) {
                                 {'Not MeLi'}
                             </Typography>
                         </Toolbar>
+                        <Search/>
                     </AppBar>
                     <Drawer open={this.state.left} onClose={this.toggleDrawer('left', false)}>
                         <div
