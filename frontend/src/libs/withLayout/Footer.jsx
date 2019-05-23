@@ -4,6 +4,7 @@ import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
+import Divider from '@material-ui/core/Divider';
 
 
 export default class Footer extends React.Component {
@@ -15,12 +16,12 @@ export default class Footer extends React.Component {
           container
           direction="column"
           justify="flex-end"
-          alignItems="center">
+          alignItems="center" >
           <Grid
             container
             direction="row"
             justify="space-evenly"
-            alignItems="flex-end">
+            alignItems="flex-end" style={{ padding: 20 }}>
             <Grid
               item
               id="concacto">
@@ -29,6 +30,7 @@ export default class Footer extends React.Component {
                   <Typography variant="h5" component="h3" align="center">
                     {'Contacto'}
                   </Typography>
+                  <Divider />
                   <a href="mailto:juan.beresiarte@mercadolibre.com">
                     {'juan.beresiarte@mercadolibre.com'}
                   </a>
@@ -47,6 +49,8 @@ export default class Footer extends React.Component {
                   <Typography variant="h5" component="h3" align="center">
                     {'Ayuda'}
                   </Typography>
+                  <Divider />
+
                   <a>
                     {'juan.beresiarte@mercadolibre.com'}
                     <br />
@@ -63,12 +67,14 @@ export default class Footer extends React.Component {
                   <Typography variant="h5" component="h3" align="center">
                     {'Redes'}
                   </Typography>
+                  <Divider />
+
                   <a href="https://www.instagram.com/juanbere/">
                     {'Juan Beresiarte'}
                   </a>
                   <br />
                   <a href="https://www.instagram.com/_gastonjofre/">
-                    {'Gaston Jofre'}
+                    {'Gastón Jofré'}
                   </a>
                 </CardContent>
               </Card>
