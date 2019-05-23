@@ -12,8 +12,9 @@ import {MDBBtn} from 'mdbreact';
 import MenuIcon from '@material-ui/icons/Menu';
 //Components
 import Spinner from '../../utils/Spinner/Spinner';
-import CategoryCard from './CategoryCardMenu';
 import Search from '../../components/Search';
+import CategoryCard from './CategoryCardMenu';
+
 
 class NavBar extends Component {
     state = {

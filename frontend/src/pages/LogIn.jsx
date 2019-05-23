@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import SingIn from '../components/SingIn';
 //material-ui components
 import Grid from '@material-ui/core/Grid';
+import withLayout from '../libs/withLayout/withLayout';
 
 class LogInPage extends Component {
     render() {
@@ -11,10 +12,10 @@ class LogInPage extends Component {
             <Grid
             >
 
-                <SingIn />
+                <SingIn/>
             </Grid>
 
         );
     }
 }
-export default (LogInPage);
+export default withLayout(LogInPage);

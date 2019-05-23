@@ -3,7 +3,7 @@ import { MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardBody, MDBInput, MDBBtn, M
 
 const SingIn = () => {
   return (
-    <MDBContainer >
+    <MDBContainer className="mt-5 mb-5">
       <MDBRow>
         <MDBCol/>
         <MDBCol md="6" className="align-center">
