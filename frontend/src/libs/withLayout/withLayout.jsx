@@ -3,7 +3,7 @@ import React from 'react';
 import AppBar from './AppBar';
 import Footer from './Footer';
 
-export default function withAppBar(WrappedComponent) {
+export default function withLayout(WrappedComponent) {
 
 
     return class extends React.Component {
