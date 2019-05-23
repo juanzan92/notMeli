@@ -10,6 +10,7 @@ class ItemPage extends Component {
         item: null,
         isLoading: true,
         isError: false,
+        description: '',
     };
 
     componentDidMount = () => {
@@ -31,6 +32,19 @@ class ItemPage extends Component {
                     isLoading: false,
                 })
             });
+
+            const urldescr = 'https://cors-anywhere.herokuapp.com/' +
+            `https://api.mercadolibre.com/items/${idItem}/description`;
+        fetch(urldescr)
+            .then(response => {
+                return response.json();
+            })
+            .then(myJson => {
+                console.log(myJson)
+                this.setState({
+                    description: myJson,
+                })
+            });
     }
 
     render() {
@@ -44,14 +58,13 @@ class ItemPage extends Component {
                         <>
                             <Grid container direction="column" justify="flex-start"
                             item xs={12} md={6}>
-                            <Carousel />
+                            <Carousel pictures={item.pictures}/>
                             Descripcion  
-                            //FOTOS Y DESCRIPCION
                             </Grid>
                             <Grid container direction="column" justify="flex-start" alignItems="flex-start"
                             item xs={12} md={6} >
                             <h1>{item.title}</h1>
-                            <h2>{item.price}</h2>
+                            <h2>${item.price}</h2>
                             </Grid>
                         </>
                 }
