@@ -6,21 +6,18 @@ import 'bootstrap-css-only/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
 //Pages
 import LandingPage from './pages/Landing';
-<<<<<<< HEAD
 import LogIn from './pages/LogIn';
-=======
 import CategoryItemsPage from './pages/CategoryItems';
->>>>>>> ef6b1cc3317a29761d69af00cffb2839d4187c42
+import ItemPage from './pages/Item';
 
 function App() {
   return (
         <Router>
           <Route exact path="/" component={LandingPage} />
-<<<<<<< HEAD
           <Route exact path="/login" component={LogIn} />
-=======
           <Route exact path="/category/:idCategory" component={CategoryItemsPage} />
->>>>>>> ef6b1cc3317a29761d69af00cffb2839d4187c42
+          <Route exact path="/item/:idItem" component={ItemPage} />
+
         </Router>
   );
 }
