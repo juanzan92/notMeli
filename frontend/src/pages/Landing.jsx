@@ -15,7 +15,6 @@ class LandingPage extends Component {
                 xs={12}>
                 <Carousel />
                 <div style={{ padding: "15%" }}>
-                    
                 </div>
             </Grid>
 

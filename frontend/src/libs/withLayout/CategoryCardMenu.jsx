@@ -10,7 +10,7 @@ class CategoryCard extends Component {
     render() {
         return (
             <Grid item xs={12}>
-                <Link to={`/${this.props.idCategoria}`}>
+                <Link to={`/category/${this.props.idCategoria}`}>
                     <ListItem button >
                         <ListItemText primary={this.props.nombreCategoria} />
                     </ListItem>

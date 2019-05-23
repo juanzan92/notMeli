@@ -11,7 +11,7 @@ import List from '@material-ui/core/List';
 import MenuIcon from '@material-ui/icons/Menu';
 //Components
 import Spinner from '../../utils/Spinner/Spinner';
-import CategoryCard from '../../components/CategoryCard';
+import CategoryCard from './CategoryCardMenu';
 
 class NavBar extends Component {
     state = {
