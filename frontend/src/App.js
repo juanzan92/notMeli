@@ -6,11 +6,13 @@ import 'bootstrap-css-only/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
 //Pages
 import LandingPage from './pages/Landing';
+import LogIn from './pages/LogIn';
 
 function App() {
   return (
         <Router>
           <Route exact path="/" component={LandingPage} />
+          <Route exact path="/login" component={LogIn} />
         </Router>
   );
 }

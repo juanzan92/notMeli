@@ -7,11 +7,13 @@ import Drawer from '@material-ui/core/Drawer';
 import IconButton from '@material-ui/core/IconButton';
 import Grid from '@material-ui/core/Grid';
 import List from '@material-ui/core/List';
+import {MDBBtn} from 'mdbreact';
 //Material-ui Icons
 import MenuIcon from '@material-ui/icons/Menu';
 //Components
 import Spinner from '../../utils/Spinner/Spinner';
 import CategoryCard from '../../components/CategoryCard';
+import Search from '../../components/Search';
 
 class NavBar extends Component {
     state = {
@@ -72,6 +74,7 @@ class NavBar extends Component {
                 this.setState({
                     categories: myJson,
                     isLoading: false,
+                    isSinged: false,
                 })
             });
     }
@@ -83,7 +86,7 @@ class NavBar extends Component {
     };
 
     render() {
-        const {isLoading, isError, categories} = this.state;
+        const {isLoading, isError, categories, isSinged} = this.state;
         return (
             <>
                 <AppBar position="static" style={{ backgroundColor: "#00A896" }} >
@@ -93,6 +96,17 @@ class NavBar extends Component {
                             <MenuIcon />
                         </IconButton>
                         <div style={this.classes.grow} />
+                        <Search/>
+                        {!isSinged
+                            ?<MDBBtn
+                            className="btn col-1 mr-4 rounded "
+                            style={{ backgroundColor: "#05668D" }}
+                            href="/login"
+                          >
+                            Sign in
+                          </MDBBtn>
+                          :isError
+                        }
                         <Typography variant="h6" color="inherit" noWrap>
                             {'Not MeLi'}
                         </Typography>
