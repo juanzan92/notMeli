@@ -8,6 +8,7 @@ import 'mdbreact/dist/css/mdb.css';
 import LandingPage from './pages/Landing';
 import LogIn from './pages/LogIn';
 import CategoryItemsPage from './pages/CategoryItems';
+import ItemPage from './pages/Item';
 
 function App() {
   return (
@@ -15,6 +16,8 @@ function App() {
           <Route exact path="/" component={LandingPage} />
           <Route exact path="/login" component={LogIn} />
           <Route exact path="/category/:idCategory" component={CategoryItemsPage} />
+          <Route exact path="/item/:idItem" component={ItemPage} />
+
         </Router>
   );
 }

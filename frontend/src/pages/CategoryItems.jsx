@@ -9,7 +9,6 @@ class CategoryItemsPage extends Component {
 
   state = {
     items: [],
-    left: false,
     isLoading: true,
     isError: false,
   };
