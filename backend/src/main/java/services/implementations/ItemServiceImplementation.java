@@ -2,8 +2,6 @@ package services.implementations;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import models.Item;
 import services.interfaces.ItemService;
 
 import java.io.BufferedReader;
@@ -11,11 +9,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
-import java.util.Arrays;
-import java.util.List;
 
 public class ItemServiceImplementation implements ItemService {
-    private final static String ITEMS_URL = "https://api.mercadolibre.com/sites/MLU/search?category=";
+    private final static String ITEMS_URL = "https://api.mercadolibre.com/sites/MLA/search?category=";
     private final static String SUFIX_URL = "&official_store_id=all";
     private static ItemServiceImplementation myItemService;
 
@@ -31,35 +27,25 @@ public class ItemServiceImplementation implements ItemService {
     private ItemServiceImplementation() {
     }
 
-    public List<Item> getItem(String id) {
+    public String getItem(String id) {
         return null;
     }
 
-    public List<Item> getItems() {
+    public String getItems() {
         return null;
     }
 
-    public List<Item> getItemsByCategory(String id) {
-        if (id.isEmpty()) {
-            return null;
+    public String getItemsByCategory(String id) throws Exception {
+        if (id.isEmpty() || id.length() < 4) {
+            throw new Exception();
         }
-        try {
-            String data = readUrl(ITEMS_URL + id + SUFIX_URL);
-            if (data.equals("ERROR")) {
-                return null;
-            }
-
-            Item[] agencies = getItemsFromJson(data);
-
-            if (agencies == null || agencies.length == 0){
-                return null;
-            }
-
-            return Arrays.asList(agencies);
-        } catch (Exception e){
-            return null;
+        String data = readUrl(ITEMS_URL + id + SUFIX_URL);
+        if (data.equals("ERROR")) {
+            throw new Exception();
         }
-        
+
+        return getItemsFromJson(data);
+
     }
 
     private static String readUrl(String urlString) throws Exception {
@@ -68,14 +54,14 @@ public class ItemServiceImplementation implements ItemService {
         try {
             URL url = new URL(urlString);
             URLConnection connection = url.openConnection();
-            connection.setRequestProperty("Accept","application/json");
-            connection.setRequestProperty("User-Agent","Mozilla/5.0");
-            reader = new BufferedReader(new InputStreamReader(connection.getInputStream(),"UTF-8"));
+            connection.setRequestProperty("Accept", "application/json");
+            connection.setRequestProperty("User-Agent", "Mozilla/5.0");
+            reader = new BufferedReader(new InputStreamReader(connection.getInputStream(), "UTF-8"));
             int read = 0;
             StringBuffer sb = new StringBuffer();
             char[] chars = new char[1024];
             while ((read = reader.read(chars)) != -1) {
-                sb.append(chars,0,read);
+                sb.append(chars, 0, read);
             }
             return sb.toString();
         } catch (IOException exception) {
@@ -91,10 +77,9 @@ public class ItemServiceImplementation implements ItemService {
         }
     }
 
-    private Item[] getItemsFromJson(String data) throws Exception{
+    private String getItemsFromJson(String data) throws Exception {
         try {
-            JsonObject jsonObject = new Gson().fromJson(data, JsonElement.class).getAsJsonObject();
-            return new Gson().fromJson(jsonObject.get("results"), Item[].class);
+            return data;
         } catch (Exception e) {
             throw new Exception("No se pudo parsear el vector de items de la api externa");
         }
